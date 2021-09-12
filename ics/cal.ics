@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+PRODID:adamgibbons/ics
+METHOD:PUBLISH
+X-PUBLISHED-TTL:PT1H
+BEGIN:VEVENT
+UID:thwofgSNY7dbV4Lw28GsW
+SUMMARY:Lunch Bildingen
+DTSTAMP:20210911T084200Z
+DTSTART:20210913T100000Z
+DESCRIPTION:Pasta carbonara \nFiskgryta med tomat\, fänkål\, potatis\, saff
+	ran och aioli
+DURATION:PT45M
+END:VEVENT
+BEGIN:VEVENT
+UID:tktuQGyMTyK9NZltNzQLK
+SUMMARY:Lunch Bildingen
+DTSTAMP:20210911T084200Z
+DTSTART:20210914T100000Z
+DESCRIPTION:Ugnsgratinerad falukorv med potatispuré \nKycklingsteak med grö
+	npepparsås och ris
+DURATION:PT45M
+END:VEVENT
+BEGIN:VEVENT
+UID:owy-5DGNbkGHjAyCtOA9D
+SUMMARY:Lunch Bildingen
+DTSTAMP:20210911T084200Z
+DTSTART:20210915T100000Z
+DESCRIPTION:Italienska färsbiffar med soltorkade tomater\, zucchini \nskyså
+	s och rostad potatis \nLins & fetaostfyllda paprikor med tomatsås och \nlj
+	ummen couscoussallad
+DURATION:PT45M
+END:VEVENT
+BEGIN:VEVENT
+UID:jabTkDyL1jhF8D65jMNRo
+SUMMARY:Lunch Bildingen
+DTSTAMP:20210911T084200Z
+DTSTART:20210916T100000Z
+DESCRIPTION:Gräddstuvad pytt i panna med rödbetor och saltgurka \nPotatis o
+	ch nötfärsgratäng
+DURATION:PT45M
+END:VEVENT
+BEGIN:VEVENT
+UID:8TU64MVIcOf0oNaF0PqDs
+SUMMARY:Lunch Bildingen
+DTSTAMP:20210911T084200Z
+DTSTART:20210917T100000Z
+DESCRIPTION:Bildningensgott & blandat
+DURATION:PT45M
+END:VEVENT
+END:VCALENDAR
