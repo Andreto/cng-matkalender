@@ -9,6 +9,8 @@ const PDFR = require('./pdfReader.js');
 const MENU = require('./menuProcessing.js');
 const ICS = require('./icsWriter.js');
 
+const port = process.env.PORT || 3000
+
 const app = express();
 
 // Requests a pdf by URL and retreves menu information
@@ -47,7 +49,7 @@ app.get('/', (req, res) => {
   res.end();
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('\x1b[34m%s\x1b[0m','SERVER STARTED');
   updateData();
   const job = schedule.scheduleJob({minute: 0}, function(){
