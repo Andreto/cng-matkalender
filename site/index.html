@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>CNG Matkalender</title>
+</head>
+<body>
+    <div id="main-content">
+        <h1>CNG Matkalender</h1>
+        <h2>Bildingens lunchbuffe i kalender-appen.</h2>
+        <div class="parameter-input">
+            <div class="param-label">Visa meny för:</div>
+            <div class="check-container">
+                <label class="check-mark-container">
+                    <input class="check-box" type="checkbox" id="reg-check">
+                    <span class="check-mark"></span>
+                </label>
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15.45 15.4c-2.13.65-4.3.32-5.7-1.1-2.29-2.27-1.76-6.5 1.17-9.42 2.93-2.93 7.15-3.46 9.43-1.18 1.41 1.41 1.74 3.57 1.1 5.71-1.4-.51-3.26-.02-4.64 1.36-1.38 1.38-1.87 3.23-1.36 4.63z"/>
+                    <path d="M11.25 15.6l-2.16 2.16a2.5 2.5 0 11-4.56 1.73 2.49 2.49 0 01-1.41-4.24 2.5 2.5 0 013.14-.32l2.16-2.16"/>
+                </svg>
+                <div class="check-text">Ordinarie rätter</div>
+            </div>
+            <div class="check-container">
+                <label class="check-mark-container">
+                    <input class="check-box" type="checkbox" id="veg-check">
+                    <span class="check-mark"></span>
+                </label>
+                <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2.27 21.7s9.87-3.5 12.73-6.36a4.5 4.5 0 00-6.36-6.37C5.77 11.84 2.27 21.7 2.27 21.7zM8.64 14l-2.05-2.04M15.34 15l-2.46-2.46"/>
+                    <path d="M22 9s-1.33-2-3.5-2C16.86 7 15 9 15 9s1.33 2 3.5 2S22 9 22 9z"/>
+                    <path d="M15 2s-2 1.33-2 3.5S15 9 15 9s2-1.84 2-3.5C17 3.33 15 2 15 2z"/>
+                </svg>
+                <div class="check-text">Vegetariska rätter</div>
+            </div>
+            <div class="param-label">Händelsens startid:</div>
+            <select id="start-select">
+                <option value="1100">11:00</option>
+                <option value="1130">11:30</option>
+                <option value="1200">12:00</option>
+            </select>
+            <div class="param-label">Länk till kalender-filen:</div>
+        </div>
+
+        <div id="link-display">
+            https://cng-mat.herokuapp.com/
+        </div>
+        <svg id="copy-button" title="Kopiera" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 012 2v4M8 4H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2v-2"></path>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M21 14H11"></path>
+                <path d="M15 10l-4 4 4 4"></path>
+        </svg>
+        <div class="param-label">Instruktioner för att lägga till kalender från webbplats:</div>
+        <a href="./instructions/google/">Google</a><br>
+        <a href="./instructions/outlook/">Outlook</a><br>
+        <a href="./instructions/samsun/">Samsung</a><br>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

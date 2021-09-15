@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log('\x1b[34m%s\x1b[0m','SERVER STARTED');
   updateData();
-  const job = schedule.scheduleJob({minute: 0}, function(){
+  const job = schedule.scheduleJob({hour: 4}, function(){
     updateData();
   });
 });
