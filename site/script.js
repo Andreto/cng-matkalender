@@ -63,14 +63,12 @@ function genUrl() {
     var veg = document.getElementById("veg-check").checked;
     var time = document.getElementById("start-select").value;
 
-    console.log("Doing stuff")
-
     if (reg && veg) {
-        icsLinkPath = "ics/all" + time + ".cal";
+        icsLinkPath = "ics/all" + time + ".ics";
     } else if (reg) {
-        icsLinkPath = "ics/reg" + time + ".cal";
+        icsLinkPath = "ics/reg" + time + ".ics";
     } else if (veg) {
-        icsLinkPath = "ics/veg" + time + ".cal";
+        icsLinkPath = "ics/veg" + time + ".ics";
     } else {
         icsLinkPath = "";
         msgDisplay("warn", "Välj minst en kategori av rätter")
@@ -80,7 +78,7 @@ function genUrl() {
 }
 
 var icsLinkBase = "https://cng-mat.herokuapp.com/";
-var icsLinkPath = "cal.ics"
+var icsLinkPath = "ics/all1200.ics"
 
 document.getElementById("copy-button").addEventListener("click", function(){
     copyTextToClipboard(icsLinkBase + icsLinkPath);

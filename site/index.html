@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
     <title>CNG Matkalender</title>
 </head>
@@ -15,7 +15,7 @@
             <div class="param-label">Visa meny för:</div>
             <div class="check-container">
                 <label class="check-mark-container">
-                    <input class="check-box" type="checkbox" id="reg-check">
+                    <input class="check-box" type="checkbox" checked id="reg-check">
                     <span class="check-mark"></span>
                 </label>
                 <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -26,7 +26,7 @@
             </div>
             <div class="check-container">
                 <label class="check-mark-container">
-                    <input class="check-box" type="checkbox" id="veg-check">
+                    <input class="check-box" type="checkbox" checked id="veg-check">
                     <span class="check-mark"></span>
                 </label>
                 <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -40,13 +40,13 @@
             <select id="start-select">
                 <option value="1100">11:00</option>
                 <option value="1130">11:30</option>
-                <option value="1200">12:00</option>
+                <option value="1200" selected>12:00</option>
             </select>
             <div class="param-label">Länk till kalender-filen:</div>
         </div>
 
         <div id="link-display">
-            https://cng-mat.herokuapp.com/
+            https://cng-mat.herokuapp.com/ics/all1200.ics
         </div>
         <svg id="copy-button" title="Kopiera" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 4h2a2 2 0 012 2v4M8 4H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2v-2"></path>
