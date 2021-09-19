@@ -61,7 +61,7 @@ function msgDisplay(type, msg) {
 function genUrl() {
     var reg = document.getElementById("reg-check").checked;
     var veg = document.getElementById("veg-check").checked;
-    var time = document.getElementById("start-select").value;
+    var time = document.getElementById("start-hour").value + document.getElementById("start-min").value;
     var m = ""
 
     if (reg && veg) {
@@ -81,6 +81,19 @@ function genUrl() {
     }
 }
 
+function formatNumInput(elem) {
+    num = parseInt(elem.value);
+    max = parseInt(elem.max);
+    step = parseInt(elem.step);
+    if (elem.id == "start-hour") {
+        if (num > 23) {this.value =}
+    }
+    if (elem.value.length < 2) {
+        elem.value = "0" + elem.value;
+    }
+
+}
+
 var icsLinkBase = "https://cng-mat.herokuapp.com/f";
 var icsLinkPath = "?m=a&t=1200&d=45"
 
@@ -90,4 +103,5 @@ document.getElementById("copy-button").addEventListener("click", function(){
 });
 document.getElementById("reg-check").addEventListener("change", function(){genUrl()});
 document.getElementById("veg-check").addEventListener("change", function(){genUrl()});
-document.getElementById("start-select").addEventListener("change", function(){genUrl()});
+document.getElementById("start-hour").addEventListener("change", function(){formatNumInput(this);genUrl();});
+document.getElementById("start-min").addEventListener("change", function(){formatNumInput(this);genUrl();});

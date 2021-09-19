@@ -37,11 +37,10 @@
                 <div class="check-text">Vegetariska rätter</div>
             </div>
             <div class="param-label">Händelsens startid:</div>
-            <select id="start-select">
-                <option value="1100">11:00</option>
-                <option value="1130">11:30</option>
-                <option value="1200" selected>12:00</option>
-            </select>
+            <div class="start-select-holder">
+                <input type="number" id="start-hour" class="start-select" step="1" min="0" max="23" value="12">
+                <input type="number" id="start-min" class="start-select" step="15" min="0" max="45" value="00">
+            </div>
             <div class="param-label">Länk till kalender-filen:</div>
         </div>
 
