@@ -1,0 +1,43 @@
+{
+  "W": 38,
+  "Mån": {
+    "meal": [
+      "Sprödbakad torsk med curryremoulad och kokt potatis",
+      "Dillkött med kokt potatis"
+    ],
+    "veg": [
+      "Veg: Quinoa & grönkålsbiffar med örtfärskost och kokt potatis"
+    ]
+  },
+  "Tis": {
+    "meal": [
+      "Tomat & lököverbakad frukostkorv, gurkmajonnäs",
+      "och ugnsbakad potatis",
+      "Pasta med kalkon, rostad vitlökssås och soltorkad tomat"
+    ],
+    "veg": [
+      "Veg:Filodegsknytenmed sesam, broccoli och morot"
+    ]
+  },
+  "Ons": {
+    "meal": [
+      "Slottsstek med gräddsås, morötter, gelé och kokt potatis",
+      "Spenat & ricottadelizie med tomat"
+    ],
+    "veg": []
+  },
+  "Tor": {
+    "meal": [
+      "TACO-TORSDA G "
+    ],
+    "veg": [
+      "Veg: TACO"
+    ]
+  },
+  "Fre": {
+    "meal": [
+      "Bildningens gott & blandat"
+    ],
+    "veg": []
+  }
+}

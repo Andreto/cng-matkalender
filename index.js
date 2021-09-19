@@ -4,10 +4,10 @@
 const rp = require('request-promise');
 const express = require('express');
 const schedule = require('node-schedule');
+const fs = require('fs');
 
-const PDFR = require('./pdfReader.js');
-const MENU = require('./menuProcessing.js');
-const ICS = require('./icsWriter.js');
+const PDFR = require('./scripts/pdfReader.js');
+const MENU = require('./scripts/menuProcessing.js');
 
 const port = process.env.PORT || 3000
 
@@ -23,12 +23,13 @@ async function menuRequest(url) {
       lines[i] = lines[i].join();
     }
     var menu = MENU.getMenu(lines); // Turns the pdf-lines into a json object
-    ICS.update(menu);
+    MENU.saveMenu(menu);
+    //ICS.update(menu);
 }
 
 // Finds pdf-url and starts the data-updating chain
 function updateData() {
-  console.log('\x1b[34m%s\x1b[0m', "UPDATING MENU DATA", (new Date()))
+  console.log("🟢 UPDATING 📄 MENU DATA", (new Date()))
   rp("https://www.cng.se/")
   .then(function(html){
     el = html.substring(0,html.search("MATSEDEL"));
@@ -41,16 +42,31 @@ function updateData() {
   });
 }
 
-app.use('/ics', express.static('ics'));
-
 app.get('/', (req, res) => {
   res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write('Server online');
+  res.write("Server online");
   res.end();
 });
 
+app.get('/f', function(req, res){
+  var filename = MENU.calReq(req.query);
+  res.sendFile(filename, { root: './ics/' });
+}); 
+
+app.get('/data/:file', (req, res) => {
+  var path = "./data/" + req.params.file + ".json"
+  if (fs.existsSync(path)) {
+    fs.readFile(path, (err, json) => {
+        let obj = JSON.parse(json, null, 2);
+        res.json(obj);
+    });
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 app.listen(port, () => {
-  console.log('\x1b[34m%s\x1b[0m','SERVER STARTED');
+  console.log("🔵 SERVER STARTED");
   updateData();
   const job = schedule.scheduleJob({hour: 4}, function(){
     updateData();

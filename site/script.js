@@ -62,23 +62,27 @@ function genUrl() {
     var reg = document.getElementById("reg-check").checked;
     var veg = document.getElementById("veg-check").checked;
     var time = document.getElementById("start-select").value;
+    var m = ""
 
     if (reg && veg) {
-        icsLinkPath = "ics/all" + time + ".ics";
+        m = "a";
     } else if (reg) {
-        icsLinkPath = "ics/reg" + time + ".ics";
+        m = "r"
     } else if (veg) {
-        icsLinkPath = "ics/veg" + time + ".ics";
+        m = "v"
+    }
+
+    if (m != "") {
+        icsLinkPath = "?m=" + m + "&t=" + time + "&d=45";
+        document.getElementById("link-display").innerText = icsLinkBase + icsLinkPath;
     } else {
-        icsLinkPath = "";
+        document.getElementById("link-display").innerText = icsLinkBase
         msgDisplay("warn", "Välj minst en kategori av rätter")
     }
-    document.getElementById("link-display").innerText = icsLinkBase + icsLinkPath;
-
 }
 
-var icsLinkBase = "https://cng-mat.herokuapp.com/";
-var icsLinkPath = "ics/all1200.ics"
+var icsLinkBase = "https://cng-mat.herokuapp.com/f";
+var icsLinkPath = "?m=a&t=1200&d=45"
 
 document.getElementById("copy-button").addEventListener("click", function(){
     copyTextToClipboard(icsLinkBase + icsLinkPath);
