@@ -2,6 +2,7 @@ const { writeFileSync } = require('fs');
 const ics = require('ics');
 const wn = require('weeknumber');
 const fs = require('fs');
+const path = require('path');
 
 const timeAdj = 2; //Time adjustment; Time from the ics module should be local but for some reason it does not line up
 
@@ -42,11 +43,11 @@ const update = function (menu, filename, meal, time, duration) {
 
     icsObj.push(event);
   }
-  writeFileSync("./ics/" + filename + ".ics", ics.createEvents(icsObj).value);
+  writeFileSync(path.join(__dirname, "../ics/") + filename + ".ics", ics.createEvents(icsObj).value);
 
-  var updates = JSON.parse(fs.readFileSync("./data/updates.json"));
+  var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
   updates[filename] = (new Date()).toISOString();
-  fs.writeFileSync("./data/updates.json", JSON.stringify(updates, null, 2));
+  fs.writeFileSync(path.join(__dirname, "../data/updates.json"), JSON.stringify(updates, null, 2));
 
   console.log("🟢 UPDATING 📆", filename, (new Date()));
 }
