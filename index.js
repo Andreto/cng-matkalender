@@ -55,9 +55,9 @@ app.get('/f', function(req, res){
 }); 
 
 app.get('/data/:file', (req, res) => {
-  var path = path.join(__dirname, "/data/") + req.params.file + ".json"
-  if (fs.existsSync(path)) {
-    fs.readFile(path, (err, json) => {
+  var dPath = path.join(__dirname, "/data/") + req.params.file + ".json"
+  if (fs.existsSync(dPath)) {
+    fs.readFile(dPath, (err, json) => {
         let obj = JSON.parse(json, null, 2);
         res.json(obj);
     });
