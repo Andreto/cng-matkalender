@@ -5,6 +5,7 @@ const rp = require('request-promise');
 const express = require('express');
 const schedule = require('node-schedule');
 const fs = require('fs');
+const path = require('path');
 
 const PDFR = require('./scripts/pdfReader.js');
 const MENU = require('./scripts/menuProcessing.js');
@@ -29,7 +30,7 @@ async function menuRequest(url) {
 
 // Finds pdf-url and starts the data-updating chain
 function updateData() {
-  console.log("🟢 UPDATING 📄 MENU DATA", (new Date()))
+  console.log("🟢 UPDATING 📄 MENU DATA", (new Date()));
   rp("https://www.cng.se/")
   .then(function(html){
     el = html.substring(0,html.search("MATSEDEL"));
@@ -50,11 +51,11 @@ app.get('/', (req, res) => {
 
 app.get('/f', function(req, res){
   var filename = MENU.calReq(req.query);
-  res.sendFile(filename, { root: './ics/' });
+  res.sendFile(filename, { root: path.join(__dirname, '/ics/') });
 }); 
 
 app.get('/data/:file', (req, res) => {
-  var path = "./data/" + req.params.file + ".json"
+  var path = path.join(__dirname, "/data/") + req.params.file + ".json"
   if (fs.existsSync(path)) {
     fs.readFile(path, (err, json) => {
         let obj = JSON.parse(json, null, 2);

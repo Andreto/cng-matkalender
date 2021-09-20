@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 const getMenu = function (pdfInp) {
   var dayIDs = ["Mån", "Tis", "Ons", "Tor", "Fre"];
@@ -53,31 +54,31 @@ const getMenu = function (pdfInp) {
 
 const saveMenu = function(menu) {
   fs.writeFileSync(
-    "./data/menu.json", 
+    path.join(__dirname, "../data/menu.json"), 
     JSON.stringify(menu, null, 2)
   );
   
-  var updates = JSON.parse(fs.readFileSync("./data/updates.json"));
+  var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
   updates.menu = (new Date()).toISOString();
-  fs.writeFileSync("./data/updates.json", JSON.stringify(updates, null, 2));
+  fs.writeFileSync(path.join(__dirname, "../data/updates.json"), JSON.stringify(updates, null, 2));
 }
 
 const calReq = function(q) {
-  const ICS = require('../scripts/icsWriter.js');
+  const ICS = require(path.join(__dirname, '../scripts/icsWriter.js'));
 
   var meal = q.m || "a";
   var time = q.t || "1200";
   var duration = q.d || "45";
 
   var filename = meal + time + duration;
-  var updates = JSON.parse(fs.readFileSync("./data/updates.json"));
+  var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
 
   if (updates.hasOwnProperty(filename)) {
     mDate = new Date(updates.menu);
     iDate = new Date(updates[filename]);
     if (mDate > iDate) {
       ICS.update(
-        JSON.parse(fs.readFileSync("./data/menu.json")),
+        JSON.parse(fs.readFileSync(path.join(__dirname, "../data/menu.json"))),
         filename, 
         meal, 
         [parseInt(time.substring(0,2)), parseInt(time.substring(2))], 
@@ -88,7 +89,7 @@ const calReq = function(q) {
     }
   } else {
     ICS.update(
-      JSON.parse(fs.readFileSync("./data/menu.json")),
+      JSON.parse(fs.readFileSync(path.join(__dirname, "../data/menu.json"))),
       filename, 
       meal, 
       [parseInt(time.substring(0,2)), parseInt(time.substring(2))], 
