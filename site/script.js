@@ -62,6 +62,7 @@ function genUrl() {
     var reg = document.getElementById("reg-check").checked;
     var veg = document.getElementById("veg-check").checked;
     var time = document.getElementById("start-hour").value + document.getElementById("start-min").value;
+    var dur = document.getElementById("start-dur").value;
     var m = ""
 
     if (reg && veg) {
@@ -73,7 +74,7 @@ function genUrl() {
     }
 
     if (m != "") {
-        icsLinkPath = "?m=" + m + "&t=" + time + "&d=45";
+        icsLinkPath = "?m=" + m + "&t=" + time + "&d=" + dur;
         document.getElementById("link-display").innerText = icsLinkBase + icsLinkPath;
     } else {
         document.getElementById("link-display").innerText = icsLinkBase
@@ -82,11 +83,12 @@ function genUrl() {
 }
 
 function formatNumInput(elem) {
-    num = parseInt(elem.value);
-    max = parseInt(elem.max);
-    step = parseInt(elem.step);
-    if (elem.id == "start-hour") {
-        if (num > 23) {this.value =}
+    console.log(elem.id, elem.value % elem.step, parseInt(elem.value) > parseInt(elem.max));
+    if (parseInt(elem.value) > parseInt(elem.max)) {
+        elem.value = elem.max; 
+    }
+    if (parseInt(elem.value) % parseInt(elem.step) != 0) {
+        elem.value = parseInt(elem.value) - (parseInt(elem.value) % parseInt(elem.step));
     }
     if (elem.value.length < 2) {
         elem.value = "0" + elem.value;
@@ -105,3 +107,4 @@ document.getElementById("reg-check").addEventListener("change", function(){genUr
 document.getElementById("veg-check").addEventListener("change", function(){genUrl()});
 document.getElementById("start-hour").addEventListener("change", function(){formatNumInput(this);genUrl();});
 document.getElementById("start-min").addEventListener("change", function(){formatNumInput(this);genUrl();});
+document.getElementById("start-dur").addEventListener("change", function(){formatNumInput(this);genUrl();});
