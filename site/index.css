@@ -109,6 +109,21 @@ h2 {
     font-size: 12px;
     color: #677280;
 }
+.flex-p {
+    max-width: 600px;
+}
+.inst-link {
+    color: #2C88EF;
+    margin-right: 2em;
+    cursor: pointer;
+}
+.inst-link:hover {
+    text-decoration: underline dashed;
+}
+#inst-img {
+    max-width: 98%;
+    margin-bottom: 20px;
+}
 
 
 /* MESSEGE */
