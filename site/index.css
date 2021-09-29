@@ -69,6 +69,9 @@ h2 {
     margin-bottom: 12px;
     font-weight: 500;
 }
+.param-label.close {
+    margin-top: 12px;
+}
 .start-select {
     width: 50px;
     position: relative;
@@ -80,8 +83,10 @@ h2 {
     font-size: 1em;
     cursor: pointer;
     border: 2px solid #B5C9E2;
+    background-color: #F7F8FB;
     transition: .4s;
     z-index: 1;
+    border-radius: 4px;
 }
 .start-select:focus {
     z-index: 2;
@@ -93,7 +98,31 @@ h2 {
 }
 #start-min {
     border-radius: 0 4px 4px 0;
-    left: -8px;
+    left: -7px;
+}
+.input-info {
+    position: relative;
+    display: inline-block;
+    top: -4px;
+    width: 50px;
+    padding-left: 2px;
+    font-size: 12px;
+    color: #677280;
+}
+.flex-p {
+    max-width: 600px;
+}
+.inst-link {
+    color: #2C88EF;
+    margin-right: 2em;
+    cursor: pointer;
+}
+.inst-link:hover {
+    text-decoration: underline dashed;
+}
+#inst-img {
+    max-width: 98%;
+    margin-bottom: 20px;
 }
 
 

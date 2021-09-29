@@ -11,6 +11,7 @@
     <div id="main-content">
         <h1>CNG Matkalender</h1>
         <h2>Bildingens lunchbuffe i kalender-appen.</h2>
+        <h3>Generera kalender-länk:</h3>
         <div class="parameter-input">
             <div class="param-label">Visa meny för:</div>
             <div class="check-container">
@@ -40,8 +41,15 @@
             <div class="start-select-holder">
                 <input type="number" id="start-hour" class="start-select" step="1" min="0" max="23" value="12">
                 <input type="number" id="start-min" class="start-select" step="15" min="0" max="45" value="00">
+                <br><div class="input-info">tim</div>
+                <div class="input-info">min</div>
             </div>
-            <div class="param-label">Länk till kalender-filen:</div>
+            <div class="param-label close">Händelsens längd:</div>
+            <div class="start-select-holder">
+                <input type="number" id="start-dur" class="start-select" step="15" min="15" max="1445" value="45">
+                <br><div class="input-info">min</div>
+            </div>
+            <div class="param-label close">Länk till kalender-filen:</div>
         </div>
 
         <div id="link-display">
@@ -53,10 +61,10 @@
                 <path d="M21 14H11"></path>
                 <path d="M15 10l-4 4 4 4"></path>
         </svg>
-        <div class="param-label">Instruktioner för att lägga till kalender från webbplats:</div>
-        <a href="./instructions/google/">Google</a><br>
-        <a href="./instructions/outlook/">Outlook</a><br>
-        <a href="./instructions/samsun/">Samsung</a><br>
+        <h3>Lägg till kalendern:</h3>
+        <p class="flex-p">I de flesta kalender-appar kan du prenumerera på en webbkalender genom att klicka på <i>”Lägg till kalender”</i> och sedan <i>”Från webbplats”</i>. Använd sedan den länk som genererades här ovan som kalenderns URL/webbplats. Exempel för Google Kalender och Outlook Kalender finns nedan.</p>
+        <div><span id="inst-g" class="inst-link">Google</span><span id="inst-o" class="inst-link">Outlook</span><span id="inst-x" class="inst-link">| X |</span></div>
+        <img id="inst-img" src="">
     </div>
     <script src="script.js"></script>
 </body>
