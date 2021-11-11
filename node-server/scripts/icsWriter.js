@@ -4,7 +4,7 @@ const wn = require('weeknumber');
 const fs = require('fs');
 const path = require('path');
 
-const timeAdj = 2; //Time adjustment; Time from the ics module should be local but for some reason it does not line up
+const timeAdj = 1; //Time adjustment; Time from the ics module should be local but for some reason it does not line up
 
 const update = function (menu, filename, meal, time, duration) {
   var dayIDs = ["Mån", "Tis", "Ons", "Tor", "Fre"];
