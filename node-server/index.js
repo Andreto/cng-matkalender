@@ -50,6 +50,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/f', function(req, res){
+  updateData();
   var filename = MENU.calReq(req.query);
   res.sendFile(filename, { root: path.join(__dirname, '/ics/') });
 }); 
