@@ -30,50 +30,46 @@ async function menuRequest(url) {
 
 // Finds pdf-url and starts the data-updating chain
 function updateData() {
-  console.log("🟢 UPDATING 📄 MENU DATA", (new Date()));
-  rp("https://www.cng.se/")
-  .then(function(html){
-    el = html.substring(0,html.search("MATSEDEL"));
-    el = el.substring(el.lastIndexOf("href")+6, el.lastIndexOf("?"));
-    console.log("PDF-URL:", el);
-    menuRequest(el)
-  })
-  .catch(function(err){
-    console.err(err);
-  });
+	console.log("🟢 UPDATING 📄 MENU DATA", (new Date()));
+	rp("https://www.finspang.se/bergska/bergskagymnasiet/ovriga/matsedlarforgymnasieskolan/matsedelibildningen")
+	.then(function(htmlText) {
+		MENU.procHtmlMenu(htmlText);
+	})
+	.catch(function(err){
+		console.error(err);
+	});
 }
 
 app.get('/', (req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  res.write("Server online");
-  res.end();
+	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.write("Server online");
+	res.end();
 });
 
 app.get('/f', function(req, res){
-  updateData();
-  var filename = MENU.calReq(req.query);
-  res.sendFile(filename, { root: path.join(__dirname, '/ics/') });
+	updateData();
+	var filename = MENU.calReq(req.query);
+	res.sendFile(filename, { root: path.join(__dirname, '/ics/') });
 }); 
 
 app.get('/data/:file', (req, res) => {
-  var dPath = path.join(__dirname, "/data/") + req.params.file + ".json"
-  if (fs.existsSync(dPath)) {
-    fs.readFile(dPath, (err, json) => {
-        let obj = JSON.parse(json, null, 2);
-        res.json(obj);
-    });
-  } else {
-    res.sendStatus(404);
-  }
+	var dPath = path.join(__dirname, "/data/") + req.params.file + ".json"
+	if (fs.existsSync(dPath)) {
+		fs.readFile(dPath, (err, json) => {
+			let obj = JSON.parse(json, null, 2);
+			res.json(obj);
+		});
+	} else {
+		res.sendStatus(404);
+	}
 });
 
-app.listen(port, () => {
-  console.log("🔵 SERVER STARTED");
-  updateData();
-  const job = schedule.scheduleJob({hour: 4}, function(){
-    updateData();
-  });
-});
+// app.listen(port, () => {
+// 	console.log("🔵 SERVER STARTED");
+// 	updateData();
+// });
+
+updateData();
 
 
 
