@@ -44,7 +44,7 @@ const update = function (menu, filename, meal, time, duration, requestObject) {
 		icsObj.push(event);
 	}
 
-	requestObject.res.setHeader('Content-type: text/calendar; charset=utf-8;');
+	requestObject.res.setHeader('Content-type', 'text/calendar');
 	requestObject.res.write(ics.createEvents(icsObj).value);
 	requestObject.res.end()
 
