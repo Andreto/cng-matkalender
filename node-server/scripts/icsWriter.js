@@ -43,8 +43,11 @@ const update = function (menu, filename, meal, time, duration, requestObject) {
 
 		icsObj.push(event);
 	}
+	
+	requestObject.res.setHeader('Content-type: text/calendar; charset=utf-8; Content-Disposition: attachment; filename=event.ics')
 	requestObject.res.write(ics.createEvents(icsObj).value);
 	requestObject.res.end()
+
 	writeFileSync(path.join(__dirname, "../ics/") + filename + ".ics", ics.createEvents(icsObj).value);
 
 	var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
