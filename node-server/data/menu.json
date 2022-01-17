@@ -1,43 +1,43 @@
 {
-  "W": 38,
+  "W": 2,
   "Mån": {
     "meal": [
-      "Sprödbakad torsk med curryremoulad och kokt potatis",
-      "Dillkött med kokt potatis"
+      "Stängt"
     ],
-    "veg": [
-      "Veg: Quinoa & grönkålsbiffar med örtfärskost och kokt potatis"
-    ]
+    "veg": []
   },
   "Tis": {
     "meal": [
-      "Tomat & lököverbakad frukostkorv, gurkmajonnäs",
-      "och ugnsbakad potatis",
-      "Pasta med kalkon, rostad vitlökssås och soltorkad tomat"
+      "Tjock grillkorv medBBQ-sås,ananascoleslaw och rostad potatis",
+      "Chicken thai med ris"
     ],
     "veg": [
-      "Veg:Filodegsknytenmed sesam, broccoli och morot"
+      "Veg:Quornthai med ris"
     ]
   },
   "Ons": {
     "meal": [
-      "Slottsstek med gräddsås, morötter, gelé och kokt potatis",
-      "Spenat & ricottadelizie med tomat"
+      "Lasagne",
+      "Broccoli& kikärtsbiff med grönärtshummusoch rostad potatis"
     ],
     "veg": []
   },
   "Tor": {
     "meal": [
-      "TACO-TORSDA G "
+      "Skånsk kalops med rödbetor och kokt potatis",
+      "Fläskkarré med örtgräddsås, gelé och kokt potatis"
     ],
     "veg": [
-      "Veg: TACO"
+      "Veg: Pasta med krämig spenat & svampsås"
     ]
   },
   "Fre": {
     "meal": [
-      "Bildningens gott & blandat"
+      "Bildningensgott & blandat",
+      "Glutenfritt"
     ],
-    "veg": []
+    "veg": [
+      "Veganskt"
+    ]
   }
 }
