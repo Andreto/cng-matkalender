@@ -65,47 +65,28 @@ const saveMenu = function(menu, requestObject) {
 	res = requestObject.res;
 	req = requestObject.req;
 
-	var filename = calReq(req.query, requestObject);
-	res.sendFile(filename, { root: path.join(__dirname, '/ics/') });
-	
+	calReq(req.query, requestObject);
 }
 
 const calReq = function(q, requestObject) {
-  const ICS = require(path.join(__dirname, '../scripts/icsWriter.js'));
+	const ICS = require(path.join(__dirname, '../scripts/icsWriter.js'));
 
-  var meal = q.m || "a";
-  var time = q.t || "1200";
-  var duration = q.d || "45";
+	var meal = q.m || "a";
+	var time = q.t || "1200";
+	var duration = q.d || "45";
 
-  var filename = meal + time + duration;
-  var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
+	var filename = meal + time + duration;
+	var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
 
-  if (updates.hasOwnProperty(filename)) {
-    mDate = new Date(updates.menu);
-    iDate = new Date(updates[filename]);
-    if (mDate > iDate) {
-      ICS.update(
-        JSON.parse(fs.readFileSync(path.join(__dirname, "../data/menu.json"))),
-        filename, 
-        meal, 
-        [parseInt(time.substring(0,2)), parseInt(time.substring(2))], 
-        parseInt(duration),
+	console.log(requestObject);
+	ICS.update(
+		JSON.parse(fs.readFileSync(path.join(__dirname, "../data/menu.json"))),
+		filename, 
+		meal, 
+		[parseInt(time.substring(0,2)), parseInt(time.substring(2))], 
+		parseInt(duration),
 		requestObject
-      )
-    } else {
-      console.log("⚪", filename)
-    }
-  } else {
-    ICS.update(
-      JSON.parse(fs.readFileSync(path.join(__dirname, "../data/menu.json"))),
-      filename, 
-      meal, 
-      [parseInt(time.substring(0,2)), parseInt(time.substring(2))], 
-      parseInt(duration)
-    )
-  }
-  return(filename + ".ics");
-
+	)
 }
 
 module.exports = {

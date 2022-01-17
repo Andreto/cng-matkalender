@@ -48,7 +48,7 @@ const update = function (menu, filename, meal, time, duration, requestObject) {
 	requestObject.res.write(ics.createEvents(icsObj).value);
 	requestObject.res.end()
 
-	writeFileSync(path.join(__dirname, "../ics/") + filename + ".ics", ics.createEvents(icsObj).value);
+	//writeFileSync(path.join(__dirname, "../ics/") + filename + ".ics", ics.createEvents(icsObj).value);
 
 	var updates = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/updates.json")));
 	updates[filename] = (new Date()).toISOString();
