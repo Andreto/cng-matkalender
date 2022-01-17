@@ -43,8 +43,8 @@ const update = function (menu, filename, meal, time, duration, requestObject) {
 
 		icsObj.push(event);
 	}
-	
-	requestObject.res.setHeader('Content-type: text/calendar; charset=utf-8; Content-Disposition: attachment; filename=event.ics')
+
+	requestObject.res.setHeader('Content-type: text/calendar; charset=utf-8;');
 	requestObject.res.write(ics.createEvents(icsObj).value);
 	requestObject.res.end()
 
