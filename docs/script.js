@@ -105,9 +105,9 @@ document.getElementById("copy-button").addEventListener("click", function(){
 });
 document.getElementById("reg-check").addEventListener("change", function(){genUrl()});
 document.getElementById("veg-check").addEventListener("change", function(){genUrl()});
-document.getElementById("start-hour").addEventListener("change", function(){formatNumInput(this);genUrl();});
-document.getElementById("start-min").addEventListener("change", function(){formatNumInput(this);genUrl();});
-document.getElementById("start-dur").addEventListener("change", function(){formatNumInput(this);genUrl();});
+document.getElementById("start-hour").addEventListener("change", function(){genUrl();});
+document.getElementById("start-min").addEventListener("change", function(){genUrl();});
+document.getElementById("start-dur").addEventListener("change", function(){genUrl();});
 
 document.getElementById("inst-g").addEventListener("click", function(){
     document.getElementById("inst-img").src = "./imgs/Google.png";
