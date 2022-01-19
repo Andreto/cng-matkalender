@@ -17,7 +17,7 @@ const update = function (menu, filename, meal, time, duration, requestObject) {
 		d.setDate(d.getDate() + 1);
 
 		let event = {
-			"title": "Lunch Bildingen",
+			"title": "Lunch Bilndingen",
 			"start": [d.getFullYear(), d.getMonth()+1, d.getDate(), time[0]-timeAdj, time[1]],
 			"duration": { minutes: duration },
 			"description" : ""

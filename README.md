@@ -1,3 +1,3 @@
 # CNG Matkalender
 
-### Få Bildingens lunchmeny direkt in i kalendern.
+### Få Bildningens lunchmeny direkt in i kalendern.
